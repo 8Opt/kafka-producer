@@ -1,0 +1,10 @@
+[project]
+name = "kafka-producer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "kafka-python>=2.2.6",
+    "opencv-python>=4.11.0.86",
+]

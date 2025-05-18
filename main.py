@@ -20,7 +20,7 @@ def filter_video_name(video_name: str):
         case video_name.startswith("http"): 
             if "youtube" in video_name: 
                 print("Running youtube video")
-                download_youtube_video(video_name, "./")
+                download_youtube_video(video_name, "./")    # TODO: Can you another libraries for reading youtube video with openCV?
                 return Path(video_name.split("/")[-1]).name
             else: 
                 print("Running http video")

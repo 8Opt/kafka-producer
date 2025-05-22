@@ -5,7 +5,7 @@ from kafka import KafkaProducer
 
 
 TOPIC = "TEST_KAFKA"
-BOOTSTRAP_SERVERS = '0.0.0.0:9092'
+BOOTSTRAP_SERVERS = '192.168.111.71:9092'
 SAMPLES_URL = "https://catfact.ninja/fact"
 
 producer = KafkaProducer(bootstrap_servers=[BOOTSTRAP_SERVERS])
@@ -18,10 +18,10 @@ while True:
         
     value = cat_rsp.json()  # ex: {"fact":"A female cat can be referred to as a molly or a queen, and a male cat is often labeled as a tom.","length":96}
     msg = value.get("fact")
-    print(f"[Producer] Kafka send: {msg}")
     value = bytes(value.get("fact"), encoding="utf-8")
     producer.send(topic=TOPIC, 
                   value=value)
-    
+    print(f"[Producer] Kafka send: {msg}")
+
 
     time.sleep(10)
